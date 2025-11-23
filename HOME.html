@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generational Achievers Students Association</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brown: #8B4513;
+            --beige: #F5F5DC;
+            --white: #FFFFFF;
+            --dark-blue: #00008B;
+            --light-brown: #A0522D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--beige);
+            color: var(--brown);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .header-logo {
+            height: 60px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+        
+        /* Logo Animation */
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 30px 0;
+        }
+        
+        .logo-img {
+            height: 220px;
+            width: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+            animation: logoEntrance 2s ease-out forwards, logoFloat 4s ease-in-out infinite 2s;
+            opacity: 0;
+            transform: scale(0.5) rotate(-180deg);
+            border: 5px solid var(--dark-blue);
+            box-shadow: 0 0 0 5px var(--brown);
+        }
+        
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(139, 69, 19, 0.3) 0%, rgba(245, 245, 220, 0) 70%);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+        
+        .logo-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .logo-particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--dark-blue);
+            animation: particleFloat 4s linear infinite;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--brown);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--dark-blue);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--dark-blue);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--beige) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--brown);
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--brown);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            background-color: var(--dark-blue);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            background-color: var(--brown);
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-brown);
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        /* Aims Section */
+        .aims-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--dark-blue);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--brown);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .aims-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .aim-card {
+            background-color: var(--beige);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .aim-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .aim-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .aim-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .aim-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+        
+        .aim-card p {
+            color: var(--brown);
+            line-height: 1.6;
+        }
+        
+        /* Join Section */
+        .join-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a1a8a 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .join-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .join-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .join-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--beige);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .join-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 40px auto;
+            color: var(--beige);
+            line-height: 1.7;
+        }
+        
+        .join-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--beige);
+            color: var(--dark-blue);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .join-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--brown);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .join-button:hover {
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .join-button:hover::before {
+            width: 100%;
+        }
+        
+        .join-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .join-feature {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 250px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .join-feature:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .join-feature i {
+            font-size: 2.5rem;
+            color: var(--beige);
+            margin-bottom: 15px;
+        }
+        
+        .join-feature h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .join-feature p {
+            color: var(--beige);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--beige);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: var(--beige);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--white);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--beige);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes logoEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-180deg);
+            }
+            70% {
+                opacity: 0.8;
+                transform: scale(1.1) rotate(10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        @keyframes logoFloat {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes logoGlow {
+            0% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            100% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(20px);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        @keyframes textGlow {
+            0% {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            100% {
+                text-shadow: 2px 2px 20px rgba(139, 69, 19, 0.3);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .logo-img {
+                height: 180px;
+                width: 180px;
+            }
+            
+            .header-logo {
+                height: 50px;
+            }
+            
+            .join-title {
+                font-size: 2.2rem;
+            }
+            
+            .join-features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .aims-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-img {
+                height: 150px;
+                width: 150px;
+            }
+            
+            .header-logo {
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .join-title {
+                font-size: 1.8rem;
+            }
+            
+            .join-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo-container">
+                <!-- Added the logo image here -->
+                <img src="LOGO.jpg" alt="Generational Achievers Logo" class="header-logo">
+                <div class="logo-text">Generational Achievers</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="patron.html">Patron</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <div class="hero-content">
+            <h1>Generational Achievers Students Association</h1>
+            
+            <!-- Animated Logo - Replace with your image -->
+            <div class="logo-wrapper">
+                <!-- REPLACE THE SRC WITH YOUR IMAGE PATH -->
+                <img src="LOGO.jpg" alt="Generational Achievers Logo" class="logo-img">
+                
+                <!-- Glow Effect -->
+                <div class="logo-glow"></div>
+                
+                <!-- Animated Particles -->
+                <div class="logo-particles" id="particles-container"></div>
+            </div>
+            
+            <p>Empowering the next generation of entrepreneurs and leaders through mentorship, training, and innovative business thinking.</p>
+            <a href="#aims" class="cta-button">Discover Our Mission</a>
+        </div>
+    </section>
+
+    <section id="aims" class="aims-section">
+        <div class="container">
+            <h2 class="section-title">Our Aims & Objectives</h2>
+            <div class="aims-grid">
+                <div class="aim-card">
+                    <div class="aim-number">1</div>
+                    <h3>Entrepreneurial Motivation</h3>
+                    <p>To motivate students to flourish entrepreneurially by equipping them with skills, knowledge and confidence required to operate a business.</p>
+                </div>
+                <div class="aim-card">
+                    <div class="aim-number">2</div>
+                    <h3>Entrepreneurial Culture</h3>
+                    <p>To develop an entrepreneurial culture among students for self-reliance.</p>
+                </div>
+                <div class="aim-card">
+                    <div class="aim-number">3</div>
+                    <h3>Mentorship & Training</h3>
+                    <p>Organize mentorship, workshops and training to gain leadership and business management expertise.</p>
+                </div>
+                <div class="aim-card">
+                    <div class="aim-number">4</div>
+                    <h3>Learning from Entrepreneurs</h3>
+                    <p>To hear from inspiring entrepreneurs, learn their tips for success, and network with like-minded people.</p>
+                </div>
+                <div class="aim-card">
+                    <div class="aim-number">5</div>
+                    <h3>Idea Exchange & Competitions</h3>
+                    <p>To exchange business ideas among students, creating a forum for business plans competition and debate and accessibility to business advice and development.</p>
+                </div>
+                <div class="aim-card">
+                    <div class="aim-number">6</div>
+                    <h3>Innovative Implementation</h3>
+                    <p>To engage in the creative and innovative discipline through implementing business concepts with an entrepreneurial mindset.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Join Section -->
+    <section class="join-section">
+        <div class="container">
+            <h2 class="join-title">Join Generational Achievers Students Association</h2>
+            <p class="join-description">Become part of a vibrant community of future entrepreneurs and leaders. Join us today to access mentorship, training, networking opportunities, and resources that will help you achieve your entrepreneurial dreams.</p>
+            
+            <!-- REPLACE THE # WITH YOUR GOOGLE FORM LINK -->
+            <a href="https://forms.gle/WgimtwNHoGnV7nuT7" class="join-button">Join Now - Fill Our Form</a>
+            
+            <div class="join-features">
+                <div class="join-feature">
+                    <i class="fas fa-users"></i>
+                    <h3>Networking</h3>
+                    <p>Connect with like-minded students and successful entrepreneurs</p>
+                </div>
+                <div class="join-feature">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Training</h3>
+                    <p>Access workshops and mentorship programs for skill development</p>
+                </div>
+                <div class="join-feature">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>Participate in business idea competitions and innovation challenges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Generational Achievers</h3>
+                    <p>Empowering students to become the entrepreneurs and leaders of tomorrow through skills development, mentorship, and innovative thinking.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="home.html">Home</a>
+                    <a href="executives.html">Executives</a>
+                    <a href="patron.html">Patron</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@generationalachievers.org</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: University OF EDUCATION, WINNEBA</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Generational Achievers Students Association. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create animated particles for the logo
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles-container');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('logo-particle');
+                
+                // Random position
+                const posX = Math.random() * 200;
+                const posY = Math.random() * 200;
+                particle.style.left = `${posX}px`;
+                particle.style.top = `${posY}px`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 4}s`;
+                
+                // Random size
+                const size = 3 + Math.random() * 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Animate aim cards on scroll
+            const aimCards = document.querySelectorAll('.aim-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            aimCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.padding = '10px 0';
+                    header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                } else {
+                    header.style.padding = '15px 0';
+                    header.style.backgroundColor = 'var(--white)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

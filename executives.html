@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Team - Generational Achievers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #1a2b4a;
+            --burgundy: #8b2635;
+            --cream: #f5f1e6;
+            --gold: #c9a96e;
+            --dark-brown: #3d2b1f;
+            --light-gold: #e8d9b5;
+            --sepia: #704214;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark-brown);
+            overflow-x: hidden;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c9a96e' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--navy);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .header-logo {
+            height: 60px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--cream);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .executive-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--navy) 0%, #2a3f66 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .executive-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c9a96e' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+        
+        .hero-ornament {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            opacity: 0.05;
+            background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: ornamentFloat 15s ease-in-out infinite;
+        }
+        
+        .hero-ornament:nth-child(1) {
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+        
+        .hero-ornament:nth-child(2) {
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+        }
+        
+        .executive-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .executive-hero h1::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .executive-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 40px auto 0;
+            color: var(--cream);
+            line-height: 1.7;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Executive Grid */
+        .executive-section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 80px;
+            color: var(--navy);
+            position: relative;
+        }
+        
+        .section-title::before, .section-title::after {
+            content: '❖';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        
+        .section-title::before {
+            left: 30%;
+        }
+        
+        .section-title::after {
+            right: 30%;
+        }
+        
+        .executive-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .executive-row {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+        
+        .executive-card {
+            background: linear-gradient(145deg, #ffffff, #f5f1e6);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--light-gold);
+        }
+        
+        .executive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--navy), var(--burgundy));
+        }
+        
+        .executive-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .executive-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .executive-image-container {
+            position: relative;
+            margin-bottom: 25px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(145deg, var(--gold), var(--light-gold));
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .executive-card:hover .executive-image-container {
+            transform: scale(1.05);
+        }
+        
+        .executive-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--cream);
+            display: block;
+            transition: all 0.4s ease;
+        }
+        
+        .president .executive-image {
+            width: 220px;
+            height: 220px;
+        }
+        
+        .executive-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: var(--navy);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .executive-name::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--burgundy);
+            transition: width 0.4s ease;
+        }
+        
+        .executive-card:hover .executive-name::after {
+            width: 100%;
+        }
+        
+        .president .executive-name {
+            font-size: 2.2rem;
+        }
+        
+        .executive-role {
+            font-size: 1.1rem;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+            font-weight: 600;
+            padding: 8px 20px;
+            background: linear-gradient(to right, var(--light-gold), #f1e6cf);
+            border-radius: 30px;
+            display: inline-block;
+            border: 1px solid var(--gold);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .president .executive-role {
+            font-size: 1.3rem;
+            background: linear-gradient(to right, var(--gold), #d8b863);
+            color: var(--navy);
+            font-weight: 700;
+        }
+        
+        .executive-bio {
+            color: var(--dark-brown);
+            line-height: 1.6;
+            max-width: 300px;
+            font-size: 0.95rem;
+        }
+        
+        /* President Card (Special Styling) */
+        .president {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background: linear-gradient(145deg, #ffffff, #f9f5eb);
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .president::before {
+            content: '★';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+        
+        .president::after {
+            content: '★';
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--cream);
+            padding: 80px 0 40px;
+            position: relative;
+            border-top: 2px solid var(--gold);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23c9a96e' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--gold);
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: var(--cream);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--light-gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(201, 169, 110, 0.3);
+            color: var(--light-gold);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(201, 169, 110, 0.3);
+        }
+        
+        .social-icon:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes ornamentFloat {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .executive-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            .executive-card {
+                width: 100%;
+                max-width: 450px;
+            }
+            
+            .section-title::before, .section-title::after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .executive-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .executive-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .header-logo {
+                height: 50px;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .executive-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .executive-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .executive-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .president .executive-image {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .executive-name {
+                font-size: 1.5rem;
+            }
+            
+            .president .executive-name {
+                font-size: 1.8rem;
+            }
+            
+            .header-logo {
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-container">
+                <img src="LOGO.jpg" alt="Generational Achievers Logo" class="header-logo">
+                <div class="logo-text">Generational Achievers</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="executives.html" style="color: var(--gold);">Executives</a></li>
+                    <li><a href="patron.html">Patron</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="executive-hero">
+        <div class="hero-ornament"></div>
+        <div class="hero-ornament"></div>
+        <div class="container">
+            <h1>Our Distinguished Leadership</h1>
+            <p>Meet the visionary team guiding our association toward excellence, innovation, and empowerment of future generations.</p>
+        </div>
+    </section>
+
+    <section class="executive-section">
+        <div class="container">
+            <h2 class="section-title">Executive Team</h2>
+            <div class="executive-grid">
+                <!-- President - Top Center -->
+                <div class="executive-card president">
+                    <div class="executive-image-container">
+                        <img src="pre.jpg" alt="President" class="executive-image">
+                    </div>
+                    <h2 class="executive-name">PADDY CLIFFORD</h2>
+                    <div class="executive-role">President</div>
+                    <p class="executive-bio">Providing visionary leadership and strategic direction to foster innovation, collaboration, and growth among our members.</p>
+                </div>
+
+                <!-- Second Row - Vice President & General Secretary -->
+                <div class="executive-row">
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="vic.jpg" alt="Vice President" class="executive-image">
+                        </div>
+                        <h2 class="executive-name">SIBOR ABIGAIL</h2>
+                        <div class="executive-role">Vice President</div>
+                        <p class="executive-bio">Supporting strategic initiatives and overseeing operational excellence across all association activities.</p>
+                    </div>
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="GEN.jpg" alt="General Secretary" class="executive-image">
+                        </div>
+                        <h2 class="executive-name">Kolog Zoet Nina</h2>
+                        <div class="executive-role">General Secretary</div>
+                        <p class="executive-bio">Managing communications, documentation, and administrative functions with precision and efficiency.</p>
+                    </div>
+                </div>
+
+                <!-- Third Row - Financial Secretary & Treasurer -->
+                <div class="executive-row">
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="FS.jpg" alt="Financial Secretary" class="executive-image">
+                        </div>
+                        <h2 class="executive-name">KING DAVID KWABLAH DZISAH</h2>
+                        <div class="executive-role">Financial Secretary</div>
+                        <p class="executive-bio">Overseeing financial planning, budgeting, and fiscal responsibility for all association endeavors.</p>
+                    </div>
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="TRES.jpg" alt="Treasurer" class="executive-image">
+                        </div>
+                        <h2 class="executive-name">Eugenia Efia Asamoah Darkwah</h2>
+                        <div class="executive-role">Treasurer</div>
+                        <p class="executive-bio">Ensuring financial accountability and managing the association's resources with integrity.</p>
+                    </div>
+                </div>
+
+                <!-- Fourth Row - Organizer & PRO -->
+                <div class="executive-row">
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="OR.jpg" alt="Organizer" class="executive-image">
+                        </div>
+                        <h2 class="executive-name">Emmanuel Nkrumah</h2>
+                        <div class="executive-role">Organizer</div>
+                        <p class="executive-bio">Creating engaging events and activities that foster connection and professional development.</p>
+                    </div>
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="PRO.jpg" alt="Public Relations Officer" class="executive-image">
+                        </div>
+                        <h2 class="executive-name">Tuffour Johnson Sarkodie </h2>
+                        <div class="executive-role">Public Relations Officer</div>
+                        <p class="executive-bio">Amplifying our message and building strategic partnerships to extend our reach and impact.</p>
+                    </div>
+                </div>
+
+                <!-- Fifth Row - Welfare Officer & Council Attorney -->
+                <div class="executive-row">
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="WAL.jpg" alt="Welfare Officer" class="executive-image">
+                        </div>
+                        <h2 class="executive-name">Arhin Stephanie </h2>
+                        <div class="executive-role">Welfare Officer</div>
+                        <p class="executive-bio">Championing member well-being and creating a supportive, inclusive community for all.</p>
+                    </div>
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="spon.jpg" alt="Council Attorney" class="executive-image">
+                        </div>
+                        <h2 class="executive-name">Janet Afriyie Sakyi</h2>
+                        <div class="executive-role">Sponsorship and Protocol Officer</div>
+                        <p class="executive-bio">Providing legal guidance and ensuring compliance with all regulatory requirements.</p>
+                    </div>
+                </div>
+
+                <!-- Sixth Row - Sponsorship and Protocol Officer -->
+                <div class="executive-row">
+                    <div class="executive-card">
+                        <div class="executive-image-container">
+                            <img src="CHI.jpg" alt="Sponsorship and Protocol Officer" class="executive-image">
+                        </div>
+                        <h2 class="executive-name"> Woli Christopher Kwaku</h2>
+                        <div class="executive-role">Chief Justice </div>
+                        <p class="executive-bio">Forging strategic partnerships and securing resources to support our initiatives while ensuring proper protocol and diplomatic relations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Generational Achievers</h3>
+                    <p>Empowering students to become the entrepreneurs and leaders of tomorrow through skills development, mentorship, and innovative thinking.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="executives.html">Executives</a>
+                    <a href="patron.html">Patron</a>
+                    <a href="#">Events</a>
+                    <a href="#">Gallery</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@generationalachievers.org</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> University OF EDUCATION,WINNEBA</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Generational Achievers Students Association. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced animations for executive cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const executiveCards = document.querySelectorAll('.executive-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add a delay based on card position
+                        const delay = Array.from(executiveCards).indexOf(entry.target) * 100;
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, delay);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            executiveCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.padding = '10px 0';
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+                } else {
+                    header.style.padding = '15px 0';
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+                }
+            });
+            
+            // Add subtle parallax effect to hero ornaments
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const ornaments = document.querySelectorAll('.hero-ornament');
+                
+                ornaments.forEach((ornament, index) => {
+                    const rate = scrolled * (index === 0 ? -0.5 : 0.3);
+                    ornament.style.transform = `translateY(${rate}px) rotate(${rate}deg)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
